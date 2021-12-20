@@ -1,0 +1,215 @@
+mixin product_element(product)
+  .col-sm-6.col-md-4.col-lg-3.p-b-35.isotope-item(class=product.ancestor_categories)
+    // Block2
+    .block2
+      .block2-pic.hov-img0(style="min-height:360px;display:flex;align-items:center")
+        img(src=product.assets.imgs[0].img.src alt=product.name)
+        a.block2-btn.flex-c-m.stext-103.cl2.size-102.bg0.bor2.hov-btn1.p-lr-15.trans-04.js-show-modal1(href='javascript:void(0);')(data-api='http://localhost:3001/products/'+product.id)
+          | Quick View
+      .block2-txt.flex-w.flex-t.p-t-14
+        .block2-txt-child1.flex-col-l
+          a.stext-104.cl4.hov-cl1.trans-04.js-name-b2.p-b-6(href='http://localhost:3001/products/product-detail/'+product.slug)
+            = product.name
+          span.stext-105.cl3
+            = product.price + 'VND'
+            
+        .block2-txt-child2.flex-r.p-t-3
+          a.btn-addwish-b2.dis-block.pos-relative.js-addwish-b2(href='#')
+            img.icon-heart1.dis-block.trans-04(src='/images/icons/icon-heart-01.png' alt='ICON')
+            img.icon-heart2.dis-block.trans-04.ab-t-l(src='/images/icons/icon-heart-02.png' alt='ICON')
+
+
+// Product
+section.bg0.p-t-23.p-b-140
+   
+    if search
+      .bread-crumb.flex-w.p-r-15.p-t-30.p-lr-0-lg
+        a.stext-106.cl8.hov-cl1.trans-04(href='/')
+          | Home
+          i.fa.fa-angle-right.m-l-9.m-r-10(aria-hidden='true')
+        a.stext-106.cl8.hov-cl1.trans-04(href='/products')
+          | Products
+          i.fa.fa-angle-right.m-l-9.m-r-10(aria-hidden='true')
+        span.stext-106.cl4
+          = '"'+ search + '" '
+    .flex-w.flex-sb-m.p-b-52
+      .flex-w.flex-l-m.filter-tope-group.m-tb-10
+        button.stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5.how-active1(data-filter='*')
+          | All Products
+        button.stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5(data-filter='.women')
+          | Women
+        button.stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5(data-filter='.men')
+          | Men
+        button.stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5(data-filter='.bag')
+          | Bag
+        button.stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5(data-filter='.shoes')
+          | Shoes
+        button.stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5(data-filter='.watches')
+          | Watches
+      .flex-w.flex-c-m.m-tb-10
+        .flex-c-m.stext-106.cl6.size-104.bor4.pointer.hov-btn3.trans-04.m-r-8.m-tb-4.js-show-filter
+          i.icon-filter.cl2.m-r-6.fs-15.trans-04.zmdi.zmdi-filter-list
+          i.icon-close-filter.cl2.m-r-6.fs-15.trans-04.zmdi.zmdi-close.dis-none
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Filter
+        .flex-c-m.stext-106.cl6.size-105.bor4.pointer.hov-btn3.trans-04.m-tb-4.js-show-search
+          i.icon-search.cl2.m-r-6.fs-15.trans-04.zmdi.zmdi-search
+          i.icon-close-search.cl2.m-r-6.fs-15.trans-04.zmdi.zmdi-close.dis-none
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Search
+      // Search product
+      .dis-none.panel-search.w-full.p-t-10.p-b-15
+        .bor8.dis-flex.p-l-15
+          form.flex-w.w-full(action='/products' method='get') 
+            button.size-113.flex-c-m.fs-16.cl2.hov-cl1.trans-04
+              i.zmdi.zmdi-search
+            input.mtext-107.cl2.size-114.plh2.p-r-15.w-full(type='text' name='search' placeholder='Search')
+      // Filter
+      .dis-none.panel-filter.w-full.p-t-10
+        .wrap-filter.flex-w.bg6.w-full.p-lr-40.p-t-27.p-lr-15-sm
+          .filter-col1.p-r-15.p-b-27
+            .mtext-102.cl2.p-b-15
+              | Sort By
+            ul
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Default
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Popularity
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Average rating
+              li.p-b-6
+                a.filter-link.stext-106.trans-04.filter-link-active(href='#')
+                  | Newness
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Price: Low to High
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Price: High to Low
+          .filter-col2.p-r-15.p-b-27
+            .mtext-102.cl2.p-b-15 Price
+            ul
+              li.p-b-6
+                a.filter-link.stext-106.trans-04.filter-link-active(href='#')
+                  | All
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | $0.00 - $50.00
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | $50.00 - $100.00
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | $100.00 - $150.00
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | $150.00 - $200.00
+              li.p-b-6
+                a.filter-link.stext-106.trans-04(href='#')
+                  | $200.00+
+          .filter-col3.p-r-15.p-b-27
+            .mtext-102.cl2.p-b-15 Color
+            ul
+              li.p-b-6
+                span.fs-15.lh-12.m-r-6(style='color: #222')
+                  i.zmdi.zmdi-circle
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Black
+              li.p-b-6
+                span.fs-15.lh-12.m-r-6(style='color: #4272d7')
+                  i.zmdi.zmdi-circle
+                a.filter-link.stext-106.trans-04.filter-link-active(href='#')
+                  | Blue
+              li.p-b-6
+                span.fs-15.lh-12.m-r-6(style='color: #b3b3b3')
+                  i.zmdi.zmdi-circle
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Grey
+              li.p-b-6
+                span.fs-15.lh-12.m-r-6(style='color: #00ad5f')
+                  i.zmdi.zmdi-circle
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Green
+              li.p-b-6
+                span.fs-15.lh-12.m-r-6(style='color: #fa4251')
+                  i.zmdi.zmdi-circle
+                a.filter-link.stext-106.trans-04(href='#')
+                  | Red
+              li.p-b-6
+                span.fs-15.lh-12.m-r-6(style='color: #aaa')
+                  i.zmdi.zmdi-circle-o
+                a.filter-link.stext-106.trans-04(href='#')
+                  | White
+          .filter-col4.p-b-27
+            .mtext-102.cl2.p-b-15 Tags
+            .flex-w.p-t-4.m-r--5
+              a.flex-c-m.stext-107.cl6.size-301.bor7.p-lr-15.hov-tag1.trans-04.m-r-5.m-b-5(href='#')
+                | Fashion
+              a.flex-c-m.stext-107.cl6.size-301.bor7.p-lr-15.hov-tag1.trans-04.m-r-5.m-b-5(href='#')
+                | Lifestyle
+              a.flex-c-m.stext-107.cl6.size-301.bor7.p-lr-15.hov-tag1.trans-04.m-r-5.m-b-5(href='#')
+                | Denim
+              a.flex-c-m.stext-107.cl6.size-301.bor7.p-lr-15.hov-tag1.trans-04.m-r-5.m-b-5(href='#')
+                | Streetstyle
+              a.flex-c-m.stext-107.cl6.size-301.bor7.p-lr-15.hov-tag1.trans-04.m-r-5.m-b-5(href='#')
+                | Crafts
+    // breadcrumb
+    
+    .row.isotope-grid
+      #products-list.products 
+        each product in product_list
+          +product_element(product)
+    // Pagination
+    if pageTotal >1
+      .flex-c-m.flex-w.w-full.p-t-38
+        -var page=1
+        while page < pageTotal+1
+          
+          if page == pageIndex
+            -var next=page++
+            a.flex-c-m.how-pagination1.trans-04.m-all-7.active-pagination1(href='/products?page='+next)  #{next} 
+          else 
+            -var next=page++
+            a.flex-c-m.how-pagination1.trans-04.m-all-7(href='/products?page='+next)  #{next}
+    
+// Modal1
+.wrap-modal1.js-modal1.p-t-60.p-b-20
+  .overlay-modal1.js-hide-modal1
+  .container
+    .bg0.p-t-60.p-b-30.p-lr-15-lg.how-pos3-parent
+      button.how-pos3.hov3.trans-04.js-hide-modal1
+        img(src='/images/icons/icon-close.png' alt='CLOSE')
+      .row
+        .col-md-6.col-lg-7.p-b-30
+          #modal-slick3.p-l-25.p-r-30.p-lr-0-lg
+                
+        .col-md-6.col-lg-5.p-b-30
+          .p-r-50.p-t-5.p-lr-0-lg
+            h4#js-name-detail.mtext-105.cl2.js-name-detail.p-b-14 
+            span#js-price-detail.mtext-106.cl2  
+            p#js-desc-detail.stext-102.cl3.p-t-23
+            // 
+            .p-t-33
+              #size-select-wrapper
+              #color-select-wrapper
+              .flex-w.flex-r-m.p-b-10
+                .size-204.flex-w.flex-m.respon6-next
+                  .wrap-num-product.flex-w.m-r-20.m-tb-10
+                    .btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m
+                      i.fs-16.zmdi.zmdi-minus
+                    input#modal-quantity.mtext-104.cl3.txt-center.num-product(type='number' name='num-product' value='1')
+                    .btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m
+                      i.fs-16.zmdi.zmdi-plus
+                  button#add-to-cart.flex-c-m.stext-101.cl0.size-101.bg1.bor1.hov-btn1.p-lr-15.trans-04.js-addcart-detail Add to cart
+            // 
+            .flex-w.flex-m.p-l-100.p-t-40.respon7
+              .flex-m.bor9.p-r-10.m-r-11
+                a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.js-addwish-detail.tooltip100(href='#' data-tooltip='Add to Wishlist')
+                  i.zmdi.zmdi-favorite
+              a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Facebook')
+                i.fa.fa-facebook
+              a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Twitter')
+                i.fa.fa-twitter
+              a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Google Plus')
+                i.fa.fa-google-plus

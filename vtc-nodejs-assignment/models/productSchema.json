@@ -1,0 +1,54 @@
+{
+	"name": { "type": "String", "required": true, "unique": true },
+	"desc": [
+		{
+			"lang": "String",
+			"val": { "type": "String", "required": true }
+		}
+	],
+	"slug": { "type": "String", "slug": "name", "unique": true },
+	"price": "Number",
+	"sale": {
+		"salePrice": "Number",
+		"saleEndDate": "Date"
+	},
+	"on_display": { "type": "Boolean", "default": true },
+	"in_warehouse": { "type": "Number", "default": 0 },
+	"brand": {
+		"id": "String",
+		"img": {
+			"src": "String"
+		},
+		"name": { "type": "String", "required": true }
+	},
+	"view": { "type": "Number" },
+
+	"parent_category": { "type": "String" },
+	"ancestor_categories": [{ "type": "String" }],
+	"tags": [{ "type": "String" }],
+	"assets": {
+		"imgs": [
+			{
+				"img": {
+					"height": "Number",
+					"src": { "type": "String", "required": true },
+					"width": "Number"
+				}
+			}
+		]
+	},
+	"shipping": {
+		"dimensions": {
+			"height": "Number",
+			"length": "Number",
+			"width": "Number"
+		},
+		"weight": "Number"
+	},
+	"attrs": [
+		{
+			"name": "String",
+			"value": "String"
+		}
+	]
+}

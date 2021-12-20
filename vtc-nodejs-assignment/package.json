@@ -1,0 +1,40 @@
+{
+	"name": "vtc-nodejs-assignment",
+	"version": "1.0.0",
+	"description": "assignment for nodejs+expressjs subject",
+	"main": "index.js",
+	"scripts": {
+		"start": "cross-env NODE_ENV=production node index.js",
+		"dev": "cross-env NODE_ENV=test nodemon index.js",
+		"test": "cross-env NODE_ENV=test jest --verbose ",
+		"start:test": "cross-env NODE_ENV=test nodemon index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ngonngay/vtc-nodejs-assignment.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ngonngay/vtc-nodejs-assignment/issues"
+	},
+	"homepage": "https://github.com/ngonngay/vtc-nodejs-assignment#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.0.13",
+		"mongoose-slug-generator": "^1.0.4",
+		"mongoose-unique-validator": "^3.0.0",
+		"nanoid": "^3.1.30",
+		"pug": "^3.0.2"
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"node-sass": "^6.0.1",
+		"nodemon": "^2.0.15"
+	}
+}

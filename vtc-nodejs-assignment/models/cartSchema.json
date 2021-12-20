@@ -1,0 +1,8 @@
+{
+	"_id": "ObjectId()",
+	"user_id": "ObjectId()",
+	"status": "<string>",
+	"quantity": "Number",
+	"total": "Number",
+	"products": []
+}

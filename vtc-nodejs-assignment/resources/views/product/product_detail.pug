@@ -1,0 +1,324 @@
+//- site.pug
+extends ../layouts/indexv4.pug
+
+mixin ucfirst(text)
+    - text = text.charAt(0).toUpperCase() + text.slice(1);
+    .
+      #{text}
+mixin ucfirstArray(array)
+    -var newArray=[]
+    each arrayE  in array
+      - newArray.push(arrayE.charAt(0).toUpperCase() + arrayE.slice(1));
+    .
+      #{newArray.join(",  ")}
+mixin product_element(product)
+  .item-slick2.p-l-15.p-r-15.p-t-15.p-b-15
+    // Block2
+    .block2
+      .block2-pic.hov-img0
+        img(src=product.assets.imgs[0].img.src alt=product.name)
+        a.block2-btn.flex-c-m.stext-103.cl2.size-102.bg0.bor2.hov-btn1.p-lr-15.trans-04.js-show-modal1(href='javascript:void(0);')(data-api='http://localhost:3001/products/'+product.id)
+          | Quick View
+      .block2-txt.flex-w.flex-t.p-t-14
+        .block2-txt-child1.flex-col-l
+          a.stext-104.cl4.hov-cl1.trans-04.js-name-b2.p-b-6(href='http://localhost:3001/products/product-detail/'+product.slug)
+            = product.name
+          span.stext-105.cl3
+            = product.price + 'VND'
+            
+        .block2-txt-child2.flex-r.p-t-3
+          a.btn-addwish-b2.dis-block.pos-relative.js-addwish-b2(href='#')
+            img.icon-heart1.dis-block.trans-04(src='/images/icons/icon-heart-01.png' alt='ICON')
+            img.icon-heart2.dis-block.trans-04.ab-t-l(src='/images/icons/icon-heart-02.png' alt='ICON')
+
+
+block content
+  // breadcrumb
+  .container
+    .bread-crumb.flex-w.p-l-25.p-r-15.p-t-30.p-lr-0-lg
+      a.stext-109.cl8.hov-cl1.trans-04(href='/')
+        | Home
+        i.fa.fa-angle-right.m-l-9.m-r-10(aria-hidden='true')
+      a.stext-109.cl8.hov-cl1.trans-04(href='product.html')
+        | Men
+        i.fa.fa-angle-right.m-l-9.m-r-10(aria-hidden='true')
+      span.stext-109.cl4
+        = product_detail.name
+  // Product Detail
+  section.sec-product-detail.bg0.p-t-65.p-b-60
+    .container
+      .row
+        .col-md-6.col-lg-7.p-b-30
+          .p-l-25.p-r-30.p-lr-0-lg
+            .wrap-slick3.flex-sb.flex-w
+              .wrap-slick3-dots
+              .wrap-slick3-arrows.flex-sb-m.flex-w
+              .slick3.gallery-lb
+                each image in product_detail.assets.imgs
+                  .item-slick3(data-thumb=image.img.src)
+                    .wrap-pic-w.pos-relative
+                      img#detail-thumbnail(src=image.img.src alt=product_detail.name)
+                      a.flex-c-m.size-108.how-pos1.bor0.fs-16.cl10.bg0.hov-btn3.trans-04(href=image.img.src)
+                        i.fa.fa-expand
+        .col-md-6.col-lg-5.p-b-30
+          .p-r-50.p-t-5.p-lr-0-lg
+            h4#detail-js-name-detail.mtext-105.cl2.js-name-detail.p-b-14(data-id=product_detail.id)
+              = product_detail.name
+            span#detail-js-price-detail.mtext-106.cl2
+              = product_detail.price
+            p.stext-102.cl3.p-t-23
+              = product_detail.quick_desc
+            // 
+            .p-t-33          
+              each productAttr in product_detail.attrs
+                if productAttr.name =='size'
+                  .flex-w.flex-r-m.p-b-10
+                    .size-203.flex-c-m.respon6
+                      | Size
+                    .size-204.respon6-next
+                      .rs1-select2.bor8.bg0
+                        select#detail-size-select.js-select2(name='size')
+                          option(value='') Choose an option
+                          each option in productAttr.value.split(',')
+                            option(value=option) 
+                              +ucfirst(option)
+                        .dropDownSelect2
+                else if productAttr.name =='color'
+                  .flex-w.flex-r-m.p-b-10
+                    .size-203.flex-c-m.respon6
+                      | Color
+                    .size-204.respon6-next
+                      .rs1-select2.bor8.bg0
+                        select#detail-color-select.js-select2(name='color')
+                          option(value='') Choose an option
+                          each option in productAttr.value.split(',')
+                            option(value=option) 
+                              +ucfirst(option)
+                        .dropDownSelect2
+              .flex-w.flex-r-m.p-b-10
+                .size-204.flex-w.flex-m.respon6-next
+                  .wrap-num-product.flex-w.m-r-20.m-tb-10
+                    .btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m
+                      i.fs-16.zmdi.zmdi-minus
+                    input#detail-quantity.mtext-104.cl3.txt-center.num-product(type='number' name='num-product' value='1')
+                    .btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m
+                      i.fs-16.zmdi.zmdi-plus
+                  button#detail-add-to-cart.flex-c-m.stext-101.cl0.size-101.bg1.bor1.hov-btn1.p-lr-15.trans-04.js-addcart-detail
+                    | Add to cart
+            // 
+            .flex-w.flex-m.p-l-100.p-t-40.respon7
+              .flex-m.bor9.p-r-10.m-r-11
+                a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.js-addwish-detail.tooltip100(href='#' data-tooltip='Add to Wishlist')
+                  i.zmdi.zmdi-favorite
+              a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Facebook')
+                i.fa.fa-facebook
+              a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Twitter')
+                i.fa.fa-twitter
+              a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Google Plus')
+                i.fa.fa-google-plus
+      .bor10.m-t-50.p-t-43.p-b-40
+        // Tab01
+        .tab01
+          // Nav tabs
+          ul.nav.nav-tabs(role='tablist')
+            li.nav-item.p-b-10
+              a.nav-link.active(data-toggle='tab' href='#description' role='tab') Description
+            li.nav-item.p-b-10
+              a.nav-link(data-toggle='tab' href='#information' role='tab') Additional information
+            li.nav-item.p-b-10
+              a.nav-link(data-toggle='tab' href='#reviews' role='tab') Reviews (1)
+          // Tab panes
+          .tab-content.p-t-43
+            // -
+            #description.tab-pane.fade.show.active(role='tabpanel')
+              .how-pos2.p-lr-15-md
+                p.stext-102.cl6
+                  =product_detail.desc[0].val
+            // -
+            #information.tab-pane.fade(role='tabpanel')
+              .row
+                .col-sm-10.col-md-8.col-lg-6.m-lr-auto
+                  ul.p-lr-28.p-lr-15-sm
+                    li.flex-w.flex-t.p-b-7
+                      span.stext-102.cl3.size-205
+                        | Weight
+                      span.stext-102.cl6.size-206
+                        = product_detail.shipping.weight
+                    li.flex-w.flex-t.p-b-7
+                      span.stext-102.cl3.size-205
+                        | Dimensions
+                      span.stext-102.cl6.size-206
+                        | #{product_detail.shipping.dimensions.length} x #{product_detail.shipping.dimensions.width} x #{product_detail.shipping.dimensions.height}
+                    each  attribute in product_detail.attrs
+                      li.flex-w.flex-t.p-b-7
+                        span.stext-102.cl3.size-205.caps
+                          = attribute.name
+                        span.stext-102.cl6.size-206
+                          = attribute.value
+                    
+            // -
+            #reviews.tab-pane.fade(role='tabpanel')
+              .row
+                .col-sm-10.col-md-8.col-lg-6.m-lr-auto
+                  .p-b-30.m-lr-15-sm
+                    // Review
+                    .flex-w.flex-t.p-b-68
+                      .wrap-pic-s.size-109.bor0.of-hidden.m-r-18.m-t-6
+                        img(src='/images/avatar-01.jpg' alt='AVATAR')
+                      .size-207
+                        .flex-w.flex-sb-m.p-b-17
+                          span.mtext-107.cl2.p-r-20
+                            | Ariana Grande
+                          span.fs-18.cl11
+                            i.zmdi.zmdi-star
+                            i.zmdi.zmdi-star
+                            i.zmdi.zmdi-star
+                            i.zmdi.zmdi-star
+                            i.zmdi.zmdi-star-half
+                        p.stext-102.cl6
+                          | Quod autem in homine praestantissimum atque optimum est, id deseruit. Apud ceteros autem philosophos
+                    // Add review
+                    form.w-full
+                      h5.mtext-108.cl2.p-b-7
+                        | Add a review
+                      p.stext-102.cl6
+                        | Your email address will not be published. Required fields are marked *
+                      .flex-w.flex-m.p-t-50.p-b-23
+                        span.stext-102.cl3.m-r-16
+                          | Your Rating
+                        span.wrap-rating.fs-18.cl11.pointer
+                          i.item-rating.pointer.zmdi.zmdi-star-outline
+                          i.item-rating.pointer.zmdi.zmdi-star-outline
+                          i.item-rating.pointer.zmdi.zmdi-star-outline
+                          i.item-rating.pointer.zmdi.zmdi-star-outline
+                          i.item-rating.pointer.zmdi.zmdi-star-outline
+                          input.dis-none(type='number' name='rating')
+                      .row.p-b-25
+                        .col-12.p-b-5
+                          label.stext-102.cl3(for='review') Your review
+                          textarea#review.size-110.bor8.stext-102.cl2.p-lr-20.p-tb-10(name='review')
+                        .col-sm-6.p-b-5
+                          label.stext-102.cl3(for='name') Name
+                          input#name.size-111.bor8.stext-102.cl2.p-lr-20(type='text' name='name')
+                        .col-sm-6.p-b-5
+                          label.stext-102.cl3(for='email') Email
+                          input#email.size-111.bor8.stext-102.cl2.p-lr-20(type='text' name='email')
+                      button.flex-c-m.stext-101.cl0.size-112.bg7.bor11.hov-btn3.p-lr-15.trans-04.m-b-10
+                        | Submit
+    .bg6.flex-c-m.flex-w.size-302.m-t-73.p-tb-15
+      span.stext-107.cl6.p-lr-25
+        | SKU: JAK-01
+      span.stext-107.cl6.p-lr-25
+        | Categories: 
+        +ucfirstArray(product_detail.ancestor_categories)
+  // Related Products
+  section.sec-relate-product.bg0.p-t-45.p-b-105
+    .container
+      .p-b-45
+        h3.ltext-106.cl5.txt-center
+          | Related Products
+      // Slide2
+      .wrap-slick2
+        .slick2
+         each product in product_list
+          +product_element(product)
+  // Modal1
+  .wrap-modal1.js-modal1.p-t-60.p-b-20
+    .overlay-modal1.js-hide-modal1
+    .container
+      .bg0.p-t-60.p-b-30.p-lr-15-lg.how-pos3-parent
+        button.how-pos3.hov3.trans-04.js-hide-modal1
+          img(src='/images/icons/icon-close.png' alt='CLOSE')
+        .row
+          .col-md-6.col-lg-7.p-b-30
+            #modal-slick3.p-l-25.p-r-30.p-lr-0-lg
+          .col-md-6.col-lg-5.p-b-30
+            .p-r-50.p-t-5.p-lr-0-lg
+              h4#js-name-detail.mtext-105.cl2.js-name-detail.p-b-14 
+              span#js-price-detail.mtext-106.cl2  
+              p#js-desc-detail.stext-102.cl3.p-t-23
+              // 
+              .p-t-33
+                #size-select-wrapper
+                #color-select-wrapper
+                .flex-w.flex-r-m.p-b-10
+                  .size-204.flex-w.flex-m.respon6-next
+                    .wrap-num-product.flex-w.m-r-20.m-tb-10
+                      .btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m
+                        i.fs-16.zmdi.zmdi-minus
+                      input#modal-quantity.mtext-104.cl3.txt-center.num-product(type='number' name='num-product' value='1')
+                      .btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m
+                        i.fs-16.zmdi.zmdi-plus
+                    button#add-to-cart.flex-c-m.stext-101.cl0.size-101.bg1.bor1.hov-btn1.p-lr-15.trans-04.js-addcart-detail Add to cart
+              // 
+              .flex-w.flex-m.p-l-100.p-t-40.respon7
+                .flex-m.bor9.p-r-10.m-r-11
+                  a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.js-addwish-detail.tooltip100(href='#' data-tooltip='Add to Wishlist')
+                    i.zmdi.zmdi-favorite
+                a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Facebook')
+                  i.fa.fa-facebook
+                a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Twitter')
+                  i.fa.fa-twitter
+                a.fs-14.cl3.hov-cl1.trans-04.lh-10.p-lr-5.p-tb-2.m-r-8.tooltip100(href='#' data-tooltip='Google Plus')
+                  i.fa.fa-google-plus
+
+
+block scripts
+    // PRODUCT SCRIPTS START
+    // ===============================================================================================
+    script(src='/vendor/isotope/isotope.pkgd.min.js')
+    // ===============================================================================================
+    //script(src='/vendor/sweetalert/sweetalert.min.js')
+    // ===============================================================================================
+    script(src='/vendor/slick/slick.min.js')
+    script(src='/js/slick-custom.js')
+    // ===============================================================================================
+    script(src='/vendor/select2/select2.min.js')
+    script.
+        $('.js-select2').each(function () {
+        $(this).select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $(this).next('.dropDownSelect2'),
+        });
+        });
+    script.
+        $(".gallery-lb").each(function () {
+        // the containers for all your galleries
+        //popup product view
+        $(this).magnificPopup({
+        delegate: "a", // the selector for gallery item
+        type: "image",
+        gallery: {
+        enabled: true,
+        },
+        mainClass: "mfp-fade",
+        });
+        }); 
+    script.
+        $('.js-addwish-b2').on('click', function (e) {
+        e.preventDefault();
+        });
+        $('.js-addwish-b2').each(function () {
+        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+        $(this).on('click', function () {
+        swal(nameProduct, 'is added to wishlist !', 'success');
+        $(this).addClass('js-addedwish-b2');
+        $(this).off('click');
+        });
+        });
+        $('.js-addwish-detail').each(function () {
+        var nameProduct = $(this)
+        .parent()
+        .parent()
+        .parent()
+        .find('.js-name-detail')
+        .html();
+        $(this).on('click', function () {
+        swal(nameProduct, 'is added to wishlist !', 'success');
+        $(this).addClass('js-addedwish-detail');
+        $(this).off('click');
+        });
+        });
+        
+    // PRODUCT SCRIPTS END
+    

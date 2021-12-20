@@ -1,0 +1,345 @@
+doctype html
+html
+  head
+    title Home
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    // ===============================================================================================
+    link(rel='icon' type='image/png' href='/images/icons/favicon.png')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/bootstrap/css/bootstrap.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/fonts/iconic/css/material-design-iconic-font.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/fonts/linearicons-v1.0.0/icon-font.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/animate/animate.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/css-hamburgers/hamburgers.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/animsition/css/animsition.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/MagnificPopup/magnific-popup.css')
+    link(rel='stylesheet' type='text/css' href='/vendor/perfect-scrollbar/perfect-scrollbar.css')
+    // LAYOUT END
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/select2/select2.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/daterangepicker/daterangepicker.css')
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/vendor/slick/slick.css')
+    // ===============================================================================================
+    // ===============================================================================================
+    link(rel='stylesheet' type='text/css' href='/css/util.css')
+    link(rel='stylesheet' type='text/css' href='/css/main.css')
+    // ===============================================================================================
+    // ===============================================================================================
+
+    // ===============================================================================================
+    block css
+    // ===============================================================================================
+  body.animsition
+    
+    // Header
+    header
+      // Header desktop
+      .container-menu-desktop
+        // Topbar
+        .top-bar
+          .content-topbar.flex-sb-m.h-full.container
+            .left-top-bar
+              | Free shipping for standard order over $100
+            #right-top-bar.right-top-bar.flex-w.h-full
+              a.flex-c-m.trans-04.p-lr-25(href='#')
+                | Help &amp; FAQs
+              a#my-account.flex-c-m.trans-04.p-lr-25.js-show-login--form(href='javascript:void(0)')
+                | My Account
+              a.flex-c-m.trans-04.p-lr-25(href='#')  EN 
+              a.flex-c-m.trans-04.p-lr-25(href='#')
+                | USD
+        .wrap-menu-desktop
+          nav.limiter-menu-desktop.container
+            // Logo desktop
+            a.logo(href='/')
+              img(src='/images/icons/logo-01.png' alt='IMG-LOGO')
+            // Menu desktop
+            .menu-desktop
+              ul.main-menu
+                li
+                  a(href='/') Home
+                li.label1(data-label1='hot')
+                  a(href='/products') Products
+                li
+                  a(href='/blog') Blog
+                li
+                  a(href='/about') About
+                li
+                  a(href='/contact') Contact
+            // Icon header
+            .wrap-icon-header.flex-w.flex-r-m
+              .icon-header-item.cl2.hov-cl1.trans-04.p-l-22.p-r-11.js-show-modal-search
+                i.zmdi.zmdi-search
+              #js-show-cart.icon-header-item.cl2.hov-cl1.trans-04.p-l-22.p-r-11.icon-header-noti.js-show-cart(data-notify='!')
+                i.zmdi.zmdi-shopping-cart
+              a.dis-block.icon-header-item.cl2.hov-cl1.trans-04.p-l-22.p-r-11.icon-header-noti(href='#' data-notify='0')
+                i.zmdi.zmdi-favorite-outline
+      // Header Mobile
+      .wrap-header-mobile
+        // Logo moblie
+        .logo-mobile
+          a(href='index.html')
+            img(src='/images/icons/logo-01.png' alt='IMG-LOGO')
+        // Icon header
+        .wrap-icon-header.flex-w.flex-r-m.m-r-15
+          .icon-header-item.cl2.hov-cl1.trans-04.p-r-11.js-show-modal-search
+            i.zmdi.zmdi-search
+          .icon-header-item.cl2.hov-cl1.trans-04.p-r-11.p-l-10.icon-header-noti.js-show-cart(data-notify='2')
+            i.zmdi.zmdi-shopping-cart
+          a.dis-block.icon-header-item.cl2.hov-cl1.trans-04.p-r-11.p-l-10.icon-header-noti(href='#' data-notify='0')
+            i.zmdi.zmdi-favorite-outline
+        // Button show menu
+        .btn-show-menu-mobile.hamburger.hamburger--squeeze
+          span.hamburger-box
+            span.hamburger-inner
+      // Menu Mobile
+      .menu-mobile
+        ul.topbar-mobile
+          li
+            .left-top-bar
+              | Free shipping for standard order over $100
+          li
+            .right-top-bar.flex-w.h-full
+              a.flex-c-m.p-lr-10.trans-04(href='#')
+                | Help &amp; FAQs
+              a.flex-c-m.p-lr-10.trans-04(href='#')
+                | My Account
+              a.flex-c-m.p-lr-10.trans-04(href='#')  EN 
+              a.flex-c-m.p-lr-10.trans-04(href='#')
+                | USD
+        ul.main-menu-m
+          li
+            a(href='index.html') Home
+            ul.sub-menu-m
+              li
+                a(href='index.html') Homepage 1
+              li
+                a(href='home-02.html') Homepage 2
+              li
+                a(href='home-03.html') Homepage 3
+            span.arrow-main-menu-m
+              i.fa.fa-angle-right(aria-hidden='true')
+          li
+            a(href='product.html') Shop
+          li
+            a.label1.rs1(href='shoping-cart.html' data-label1='hot') Features
+          li
+            a(href='blog.html') Blog
+          li
+            a(href='about.html') About
+          li
+            a(href='contact.html') Contact
+      // Modal Search
+      .modal-search-header.flex-c-m.trans-04.js-hide-modal-search
+        .container-search-header
+          button.flex-c-m.btn-hide-modal-search.trans-04.js-hide-modal-search
+            img(src='/images/icons/icon-close2.png' alt='CLOSE')
+          form.wrap-search-header.flex-w.p-l-15(action='/products' method='get')
+            button.flex-c-m.trans-04
+              i.zmdi.zmdi-search
+            input.plh3(type='text' name='search' placeholder='Search...')
+
+    block slider
+    block products
+    // Cart
+    .wrap-header-cart.js-panel-cart
+      .s-full.js-hide-cart
+      .header-cart.flex-col-l.p-l-65.p-r-25
+        .header-cart-title.flex-w.flex-sb-m.p-b-8
+          span.mtext-103.cl2  Your Cart 
+          .fs-35.lh-10.cl2.p-lr-5.pointer.hov-cl1.trans-04.js-hide-cart
+            i.zmdi.zmdi-close
+        .header-cart-content.flex-w.js-pscroll
+          ul#header-cart-content.header-cart-wrapitem.w-full
+            
+          .w-full
+            #header-cart-total.header-cart-total.w-full.p-tb-40
+              | Total: $75.00
+            .header-cart-buttons.flex-w.w-full
+              a#header-viewcart-button.flex-c-m.stext-101.cl0.size-107.bg3.bor2.hov-btn3.p-lr-15.trans-04.m-r-8.m-b-10(href='/api/users/cart')
+                | View Cart
+              a#header-checkout-button.flex-c-m.stext-101.cl0.size-107.bg3.bor2.hov-btn3.p-lr-15.trans-04.m-b-10(href='/api/users/cart')
+                | Check Out
+    // Footer
+    footer.bg3.p-t-75.p-b-32
+      .container
+        .row
+          .col-sm-6.col-lg-3.p-b-50
+            h4.stext-301.cl0.p-b-30 Categories
+            ul
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Women
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Men
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Shoes
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Watches
+          .col-sm-6.col-lg-3.p-b-50
+            h4.stext-301.cl0.p-b-30 Help
+            ul
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Track Order
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Returns
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | Shipping
+              li.p-b-10
+                a.stext-107.cl7.hov-cl1.trans-04(href='#')
+                  | FAQs
+          .col-sm-6.col-lg-3.p-b-50
+            h4.stext-301.cl0.p-b-30 GET IN TOUCH
+            p.stext-107.cl7.size-201
+              | Any questions? Let us know in store at 8th floor, 379
+              | Hudson St, New York, NY 10018 or call us on (+1) 96
+              | 716 6879
+            .p-t-27
+              a.fs-18.cl7.hov-cl1.trans-04.m-r-16(href='#')
+                i.fa.fa-facebook
+              a.fs-18.cl7.hov-cl1.trans-04.m-r-16(href='#')
+                i.fa.fa-instagram
+              a.fs-18.cl7.hov-cl1.trans-04.m-r-16(href='#')
+                i.fa.fa-pinterest-p
+          .col-sm-6.col-lg-3.p-b-50
+            h4.stext-301.cl0.p-b-30 Newsletter
+            form
+              .wrap-input1.w-full.p-b-4
+                input.input1.bg-none.plh1.stext-107.cl7(type='text' name='email' placeholder='email@example.com')
+                .focus-input1.trans-04
+              .p-t-18
+                button.flex-c-m.stext-101.cl0.size-103.bg1.bor1.hov-btn2.p-lr-15.trans-04
+                  | Subscribe
+        .p-t-40
+          .flex-c-m.flex-w.p-b-18
+            a.m-all-1(href='#')
+              img(src='/images/icons/icon-pay-01.png' alt='ICON-PAY')
+            a.m-all-1(href='#')
+              img(src='/images/icons/icon-pay-02.png' alt='ICON-PAY')
+            a.m-all-1(href='#')
+              img(src='/images/icons/icon-pay-03.png' alt='ICON-PAY')
+            a.m-all-1(href='#')
+              img(src='/images/icons/icon-pay-04.png' alt='ICON-PAY')
+            a.m-all-1(href='#')
+              img(src='/images/icons/icon-pay-05.png' alt='ICON-PAY')
+          p.stext-107.cl6.txt-center
+            // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+            | Copyright &copy;
+            script.
+              document.write(new Date().getFullYear());
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;All rights reserved | This template is made with
+            i.fa.fa-heart-o(aria-hidden='true')
+            |  by
+            a(href='https://colorlib.com' target='_blank') Colorlib
+            // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+    // Back to top
+    #myBtn.btn-back-to-top
+      span.symbol-btn-back-to-top
+        i.zmdi.zmdi-chevron-up
+    // Login form modal
+    #loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true' style='z-index: 2000')
+      .modal-dialog.modal-dialog-centered(role='document')
+        #login-modal-content.modal-content
+          .modal-header.border-bottom-0
+           
+          .modal-body
+            .form-title.text-center
+              h4 Login
+            .d-flex.flex-column.text-center
+              form#loginForm
+                .form-group
+                  input.form-control(type='text' name='username' placeholder='Your username...'  required)
+                .form-group
+                  input.form-control(type='password' name='password' placeholder='Your password...' required)
+                button.btn.btn-info.btn-block.btn-round(type='submit') Login
+              .text-center.text-muted.delimiter or use a social network
+              .d-flex.justify-content-center.social-buttons
+                button.btn.btn-secondary.btn-round(type='button' data-toggle='tooltip' data-placement='top' title='Twitter')
+                  i.zmdi.zmdi-twitter
+                button.btn.btn-secondary.btn-round(type='button' data-toggle='tooltip' data-placement='top' title='Facebook')
+                  i.zmdi.zmdi-facebook
+                button.btn.btn-secondary.btn-round(type='button' data-toggle='tooltip' data-placement='top' title='Linkedin')
+                  i.zmdi.zmdi-linkedin
+          .modal-footer.d-flex.justify-content-center
+            .signup-section.js-show-register--form(onclick='showRegisterForm()')
+              | Not a member yet?
+              span.text-info.link  Sign up
+              | .
+    // Register form modal
+    #registerModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true' style='z-index: 2000')
+      .modal-dialog.modal-dialog-centered(role='document')
+        #login-modal-content.modal-content
+          .modal-header.border-bottom-0
+          .modal-body
+            .form-title.text-center
+              h4 Register
+            .d-flex.flex-column.text-center
+              form#registerForm
+                .form-group
+                  input.form-control(type='text' name='username' placeholder='Your username...' required)
+                .form-group
+                  input.form-control(type='text' name='name' placeholder='Your name...' required)
+                .form-group
+                  input.form-control(type='password' name='password' placeholder='Your password...' required)
+                button.btn.btn-info.btn-block.btn-round(type='submit') Login
+              .text-center.text-muted.delimiter or use a social network
+              .d-flex.justify-content-center.social-buttons
+                button.btn.btn-secondary.btn-round(type='button' data-toggle='tooltip' data-placement='top' title='Twitter')
+                  i.zmdi.zmdi-twitter
+                button.btn.btn-secondary.btn-round(type='button' data-toggle='tooltip' data-placement='top' title='Facebook')
+                  i.zmdi.zmdi-facebook
+                button.btn.btn-secondary.btn-round(type='button' data-toggle='tooltip' data-placement='top' title='Linkedin')
+                  i.zmdi.zmdi-linkedin
+          .modal-footer.d-flex.justify-content-center
+            .signup-section.js-show-login--form
+              | Have an account? 
+              a.text-info.link(href='javascript:void(0)')  Sign in
+              | .
+        
+    // ===============================================================================================
+    script(src='/vendor/jquery/jquery-3.2.1.min.js')
+    // ===============================================================================================
+    script(src='/vendor/animsition/js/animsition.min.js')
+    // ===============================================================================================
+    script(src='/vendor/bootstrap/js/popper.js')
+    script(src='/vendor/bootstrap/js/bootstrap.min.js')
+    // ===============================================================================================
+    script(src='/vendor/MagnificPopup/jquery.magnific-popup.min.js')
+    // ===============================================================================================
+    script(src='/vendor/sweetalert/sweetalert.min.js')
+    // ===============================================================================================
+    script(src='/vendor/perfect-scrollbar/perfect-scrollbar.min.js')
+    script.
+      $('.js-pscroll').each(function () {
+      $(this).css('position', 'relative');
+      $(this).css('overflow', 'hidden');
+      var ps = new PerfectScrollbar(this, {
+      wheelSpeed: 1,
+      scrollingThreshold: 1000,
+      wheelPropagation: false,
+      });
+      $(window).on('resize', function () {
+      ps.update();
+      });
+      });
+    // ===============================================================================================
+    script(src='/js/main.js')
+    // ===============================================================================================
+    block scripts
