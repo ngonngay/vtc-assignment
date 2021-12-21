@@ -1,2 +1,6 @@
 # vtc-nodejs-assignment
-assignment for node js + expressjs 
+server side rendering
+using : 
++ Node js + expressjs
++ Pug view engine
++ mongodb
