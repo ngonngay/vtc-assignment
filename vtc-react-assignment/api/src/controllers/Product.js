@@ -6,7 +6,7 @@ const middleware = require('../utils/middleware');
 // Compile the source code
 
 // @route GET products
-// @decs get all product, return html
+// @decs get all product, return json
 // @access public
 productRouter.get('/', async (request, response) => {
 	//({$text: {$search: "test"}},{score: {$meta: "textScore"} }).sort({score:{$meta:"textScore"}})
@@ -76,7 +76,7 @@ productRouter.get('/', async (request, response) => {
 		});
 	}
 });
-// @route GET products/api
+// @route GET /api/products/api just for dev
 // @decs get all product, return json
 // @access public
 productRouter.get('/api', async (request, response) => {

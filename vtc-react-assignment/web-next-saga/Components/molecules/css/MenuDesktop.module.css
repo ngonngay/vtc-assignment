@@ -1,0 +1,46 @@
+/*------------------------------------------------------------------
+[ Menu ]*/
+
+.menuDesktop {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.mainMenu {
+	list-style-type: none;
+	margin: 0;
+
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+}
+
+.mainMenu > li {
+	display: block;
+	position: relative;
+	padding: 20px 10px 20px 0px;
+	margin: 0px 4px 0px 14px;
+}
+
+.mainMenu > li > a {
+	font-family: Poppins-Medium;
+	font-size: 14px;
+	color: #333;
+	padding: 5px 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+}
+/*---------------------------------------------*/
+.mainMenu > li.activeMenu > a {
+	color: #6c7ae0;
+}

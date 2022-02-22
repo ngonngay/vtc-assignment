@@ -1,0 +1,19 @@
+.root {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.box {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+.value {
+	margin: 5px 6px;
+}
+.mt5 {
+	margin-top: 5px;
+}
